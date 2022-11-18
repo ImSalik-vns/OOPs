@@ -1,0 +1,62 @@
+/* Inheritance
+
+Inheritance is when a class (or more than one classes) inherits the attributes and methods of
+another class. The class that is inherited is called parent, super or inherited class.
+The class that inherits is called child or sub-class. 
+*/
+class nation{ // nation is a parent class because it is inherited by state class.
+    String country = "india";
+    String economy = "under-developing";
+    String continent = "asia";
+}
+class state extends nation{ /* state is a sub-class(or child class) because it is inheriting
+nation class. It is also a parent class to city class.*/
+    String stateName = "Mizoram";
+    String location = "North-East";
+}
+class city extends state{ /* city is a child class of state class and it is grand-child class
+of nation class. */
+    String cityName = "Mumbai";
+    int tier = 1;
+    public city(String cityName, int tier) {
+        this.cityName=cityName;
+        this.tier=tier;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		city varanasi = new city("Varanasi", 2);
+		System.out.println(varanasi.country);
+		System.out.println(varanasi.economy);
+		System.out.println(varanasi.continent);
+		System.out.println(varanasi.cityName);
+		System.out.println(varanasi.tier);
+	}
+}
+
+/* There are five types of inheritance;
+1. Single or simple inheritance.
+2. Multi-level inheritance.
+3. Hierarichal inheritance.
+4. Multiple inheritance.
+5. Hybrid inheritance.
+
+Single or simple inheritance:
+When there is a parent class with only one child class, it is called simple inheritance.
+
+Multi-level inheritance:
+When inheritance goes in this fashion; grandParent class -> parent class -> grandChild class,
+it is called Multi-level inheritance.
+
+Hierarichal inheritance:
+When there are more than one child classes inherint a single parent class, it is called
+Hierarichal inheritance.
+
+Multiple inheritance:
+When one child class inherits Multiple parent classes, it is called Multiple inheritance.
+This one can be achieved only by uning interface classes.
+
+Hybrid inheritance:
+This is a hybrid of Hierarichal and Multiple inheritance. This isn't used in Java.
+*/
