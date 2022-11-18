@@ -1,0 +1,37 @@
+/* Encapsulation
+Encapsulation means, hiding a unit of code and keep it's access to private. It can be achieved
+by creating private attributes in a class. for example:*/
+class Employee{
+    String employeeName;
+    private int salary = 10000; // salary is private so no one can access it from the main method.
+    public Employee(String employeeName) {
+        this.employeeName=employeeName;
+    }
+    public void setSalary(int newSalary) { /* Using setSalary function to change the salary according 
+    to the passed salary (parameter) from the main method. This is allowed because we are making 
+    changes to the salary (private attribute) within the class.*/
+        salary=newSalary;
+    }
+    public int getSalary() { // Using getSalary function to return the changed salary.
+        return salary;
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Employee salik = new Employee("Salik Anwar");
+		salik.setSalary(12000); /* Passing parameter (changed salary) for setSalary function 
+		for salik.*/
+		System.out.println(salik.employeeName);
+		System.out.println(salik.getSalary());
+		Employee hammad = new Employee("Hammad Ashraf");
+		System.out.println(hammad.employeeName);
+		System.out.println(hammad.getSalary()); /* We didn't change hammad's salary so it prints 
+		original salary (as initialized in the Employee class).*/
+	}
+	
+	/*This way, we have restricted the access to salary and no one can change the salary 
+	just by passing arguments while creating the object.*/
+	
+}
+
