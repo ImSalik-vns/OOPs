@@ -1,0 +1,70 @@
+/* Abstraction:
+Abstraction is used for hiding a block of code or implimentation of a method/class.
+abstractin can be achieved by either using an abstract class or interface class. */
+
+// Abstraction using abstract class:
+abstract class Animals{ // An abstract class can have regular as well as abstract methods as follows;
+    public void animalsSound(){ // This is a regular method in abstract Animals class.
+        System.out.println("All animals make some sound.");
+    }
+    abstract void ratSound(); // ratSound and catSound are two abstract methods within the abstract 
+    abstract void catSound(); // class. Abstract methods do not have any body.
+}
+class animalSound extends Animals{ /* We need to creat a subclass of abstract class to inheirt its
+abstract methods. This is only possible way to use any abstract method*/
+    public void ratSound(){ // We have using the same function from the abstract class and defining
+    // its functionality by overriding it.
+        System.out.println("rats make sound; Chu Chu.");
+}
+    public void catSound(){
+        System.out.println("Cats make sound; Meow Meow.");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		animalSound s1 = new animalSound(); // Creating an object for sub-class animalSound.
+		s1.ratSound(); // calling overridden abstract functions.
+		s1.catSound(); 
+		
+		/* Animals a1 = new Animals(); >> Animals class is an abstract class so we can not initialize
+		any objects for this class. And we can not call any regular or abstract methods from
+		this class directly i.e. a1.animalsSound(); is not allowed. We need to creat a sub-class
+		to inheirt abstract methods from abstract class and then use them. */
+	}
+}
+/* Using abstract functions in an abstract, we have hiden their implimentations in their own class.
+But their implimetion is written somewhere else (i.e. in sub-classes).
+
+---------------------------------------------------------------------------------------------------
+/*
+Abstraction using Interface class:
+
+The implimentation of interface class is exactly same as abstract class except the following:
+1. we use keyword 'interface' while creating the class. We don't write keyword 'class'.
+2. an interface class can have only abstract methods unlike an abstract class.
+3. since it is fixed that an interface class can have only abstract methods, we don't require 
+writing 'abstract' keyword while creating abstract methods within the interface class. We can keep
+it to public. See the following example:
+
+interface Animals {
+    public void ratSound();
+    public void catSound();
+}
+class animalSound impliments Animals{
+    public void ratSound(){
+        System.out.println("rats make sound; Chu Chu.");
+}
+    public void catSound(){
+        System.out.println("Cats make sound; Meow Meow.");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		animalSound s1 = new animalSound();
+		s1.ratSound();
+		s1.catSound(); 
+	}
+}
+*/
