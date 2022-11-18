@@ -1,0 +1,44 @@
+class vehicle{
+    String fuelType = "petrol";
+    String madeInCountry = "india";
+    int countryCode = 101;
+    int vehicleCode;
+    int carSpeed = 40;
+    // Use of 'this' keyword in constructors keeps local variables' (passed parameters') values 
+    // to local if global variables and local variables have same name.
+    
+    // Calling same name constructors by passing different parameters.
+    // (calling default or parametrized constructors).
+    public vehicle(String fuelType, String madeInCountry){
+        this.fuelType=fuelType;
+        this.madeInCountry=madeInCountry;
+    }
+    public vehicle(String fuelType, String madeInCountry, int countryCode){
+        this(fuelType, madeInCountry); // to use existing parameters
+        this.countryCode=countryCode;
+    }
+    public vehicle(String fuelType, String madeInCountry, int countryCode, int vehicleCode){
+        this(fuelType, madeInCountry, countryCode);
+        this.vehicleCode=vehicleCode;
+    }
+    // Use of 'this' keyword in methods keeps a global variable's value same as defined in class.
+    public void carSpeed(int carSpeed){ // we have passed parameter value 25 from function call but 
+    // programe will print 40 because of 'this' keyword.
+        System.out.println("Car's speed is: "+this.carSpeed);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		vehicle v = new vehicle("diesel", "USA", 101, 50);
+		System.out.println(v.fuelType);
+		System.out.println(v.madeInCountry);
+		System.out.println(v.countryCode);
+		System.out.println(v.vehicleCode);
+		vehicle v2 = new vehicle("diesel", "Japan", 30, 50);
+		System.out.println(v2.countryCode);
+        v2.carSpeed(25);
+	}
+}
+
+
