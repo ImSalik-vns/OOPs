@@ -1,0 +1,71 @@
+/* Polymorphism
+Polymorphism means 'many forms'. When there are many forms of same function/method, this is called
+Polymorphism. There are two types of Polymorphism;
+1. Compile-time Polymorphism.
+2. Run-time Polymorphism.
+
+Compile-time Polymorphism can be achieved by method overLoading.
+Run-time Polymorphism can be achieved by method overRiding.
+*/
+
+/* Method overLoading:
+When there are more than one methods with same name within a class and they have different 
+number of arguments or different data-types in arguments, this is called method overLoading.
+*/
+class student{
+    String name;
+    int rollNumber;
+    public void studentAttributes(){
+        System.out.println("No Attributes were passed.");
+    }
+    public void studentAttributes(String name){
+        System.out.println("Name Attribute was passed.");
+    }
+    public void studentAttributes(String name, int rollNumber){
+        System.out.println("Name and rollNumber Attributes were passed.");  
+    }
+    public void overRiddenFunction(){
+        System.out.println("This function is called from the parent class.");
+    }
+}
+/* Method overRiding:
+When a method belongs to parent class and its functionality is changed in a child class,
+this is called Method overRiding.
+*/
+class XthStudent extends student{ // Extending XthStudent class to student class
+    public void overRiddenFunction(){ // Calling the function from parent class.
+        System.out.println("This function is overRidden in child class."); // overRiding the function.
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    // Method overLoading:
+		student atique = new student(); // Creating object for student class.
+		atique.studentAttributes("Atique", 25); // Calling function.
+		/* We can pass any arguments and the fuction call will automatically pick the right 
+		function from the respective class that matches the parameters. In this example,
+		function call will pick third function from the class because passed parameters are
+		matching the third function only.
+	    Note: We can not create two functions with same number, data-type and order of parameters.
+		*/
+		
+		// Method overRiding:
+		XthStudent versha = new XthStudent(); // Creating an object for child class.
+	    versha.overRiddenFunction(); // Calling the overRidden function.
+		/* Note: if we creat a parent class object and call the function with object refrence,
+		it will call the original function from the parent class, not the overRidden function. */
+	}
+}
+
+/*  We can also create an object in following way;
+
+        student s1;
+        s1 = new XthStudent();
+        s1.overRiddenFunction();
+        
+    In the above example, object refrence (s1) is of student class at Compile-time because
+    it is 'student s1' at Compile-time but,
+    it is of XthStudent class at Run-time because 's1 = new XthStudent' in the next line.
+    So, if we call overRiddenFunction, it will call the function from child class (at Run-time).
+*/
